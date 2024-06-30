@@ -5,20 +5,27 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 3.1.2
 
-* System dependencies
+* Configuration: Mysql 5
 
-* Configuration
+* Database creation: bundle exec rails db:create
 
-* Database creation
+* Database initialization: bundle exec rails db:migrate
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* How to run the test suite: bundle exec rspec
 
 * ...
+
+* curl to fetch all users
+  `curl --location '209.38.225.96:80/users''`
+
+* curl to create user
+  `curl --location '209.38.225.96:80/users' \
+  --header 'Content-Type: application/json' \
+  --data '{"user": {"name": "tanisha",
+  "campaigns_list": [{"campaign_name": "camp2", "campaign_id": "camp1_id"}]
+  }}'`
+
+* curl to filter users
+  `curl --location '209.38.225.96:80/users'/filter?campaign_names=camp2'`
